@@ -15,6 +15,7 @@ from __future__ import print_function  # Python 2.7 and 3 compatibility
 
 import sys
 from pathlib import Path
+import typing
 
 import pandas as pd
 
@@ -165,6 +166,10 @@ class ProjectInfo(object):
                  project_name: str = None,
                  design_name: str = None,
                  setup_name: str = None,
+                 dielectrics_bulk: typing.List[str] = None,
+                 dielectric_surfaces: typing.List[str] = None,
+                 resistive_surfaces: typing.List[str] = None,
+                 seams: typing.List[str] = None,
                  do_connect: bool = True):
         """
         Keyword Arguments:
@@ -179,7 +184,14 @@ class ProjectInfo(object):
                 Defaults to ``None``, which will get the current active one.
             setup_name  (str) :  Name of the setup within the design.
                 Defaults to ``None``, which will get the current active one.
-
+            dielectrics_bulk (list(str)) : List of names of dielectric bulk objects.
+                Defaults to ``None``.
+            dielectric_surfaces (list(str)) : List of names of dielectric surfaces.
+                Defaults to ``None``.
+            resistive_surfaces (list(str)) : List of names of resistive surfaces.
+                Defaults to ``None``.
+            seams (list(str)) : List of names of seams.
+                Defaults to ``None``.
             do_connect (bool) [additional]: Do create connection to Ansys or not? Defaults to ``True``.
         
         """
@@ -198,6 +210,8 @@ class ProjectInfo(object):
 
         # Dissipative HFSS volumes and surfaces
         self.dissipative = self._Dissipative()
+        for opt in diss_opt:
+            self.dissipative[opt] = locals()[opt]
         self.options = config.ansys
 
         # Connected to HFSS variable
