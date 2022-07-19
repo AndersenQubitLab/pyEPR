@@ -31,7 +31,7 @@ doclines = __doc__.split('\n')
 
 setup(
     name='pyEPR-quantum',
-    version='0.8.5.3',
+    version='0.8.5.5',
     description=doclines[0],
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -51,9 +51,11 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Scientific/Engineering", "Environment :: Console",
         "License :: OSI Approved :: Apache Software License"
     ],
     python_requires=">=3.5, <4",
-    # install_requires=['numpy','pandas','pint','matplotlib','attrdict','sympy','IPython'],
+    # install_requires=['numpy','pandas','pint','matplotlib','addict','sympy','IPython'],
     install_requires=requirements)

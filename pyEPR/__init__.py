@@ -59,7 +59,7 @@ Automated analysis of lumped and distributed circuits is provided.
 @author: Zlatko Minev, Zaki Leghas, ... and the pyEPR team
 @site: https://github.com/zlatko-minev/pyEPR
 @license: "BSD-3-Clause"
-@version: 0.8.5.3
+@version: 0.8.5.5
 @maintainer: Zlatko K. Minev and  Asaf Diringer
 @email: zlatko.minev@aya.yale.edu
 @url: https://github.com/zlatko-minev/pyEPR
@@ -74,13 +74,7 @@ import logging
 import warnings
 from pathlib import Path
 
-try:
-    from attrdict import AttrDict as Dict
-except (ImportError, ModuleNotFoundError):
-    raise ImportError("""Please install python package `AttrDict`.
-    AttrDict is in PyPI, so it can be installed directly
-    (https://github.com/bcj/AttrDict) using:
-        $ pip install attrdict""")
+from addict import Dict
 
 ##############################################################################
 # Python header
@@ -92,7 +86,7 @@ __credits__ = [
     "Will Livingston", "Steven Touzard"
 ]
 __license__ = "BSD-3-Clause"
-__version__ = "0.8.5.3"
+__version__ = "0.8.5.5"
 __maintainer__ = "Zlatko K. Minev and  Asaf Diringer"
 __email__ = "zlatko.minev@aya.yale.edu"
 __url__ = r'https://github.com/zlatko-minev/pyEPR'
